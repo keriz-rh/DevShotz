@@ -39,15 +39,21 @@
                     </label>
                     <input id="password" name="password" type="password" name="password de Registro"
                         placeholder="password registro" class="border border-gray-400 p-2 w-full rounded-lg"
-                        @error('password') style="border-color: red" @enderror value="{{ old('password') }}">
-                </div>
-
-                @error('password')
-                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
-                        <p>{{ $message }}</p>
+                        @error('password') style="border-color: red" @enderror value="{{ old('password') }}"
+                        />
+                        @error('password')
+                        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                        @enderror
                     </div>
-                @enderror
 
+<div class="mb-5">
+    <label for="remember" class=" text-gray-500 text-sm">
+        <input type="checkbox" name="remember">
+        Mantener sesión abierta
+    </label>
+</div>
 
                 <input type="submit" value="Iniciar Sesión"
                     class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold p-3 rounded-lg">

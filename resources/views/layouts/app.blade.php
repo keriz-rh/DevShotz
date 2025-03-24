@@ -15,11 +15,36 @@
             <h1 class="text-3xl font-black">
                 <a href="/">DevShotz</a>
             </h1>
-            <nav class="flex gap-2 item-center ">
-                <a class="font-bold uppercase text-gray-600" href="{{ route('login')}}">Login</a>
-                <a class="font-bold uppercase text-gray-600" 
-                href="{{ route('register')}}">Crear Cuenta</a>
+
+
+
+            @auth
+            <nav class="flex items-center gap-2">
+                <a class="font-bold uppercase text-gray-600 text-sm" href="#">
+                    Hola:
+                    <span class="font-normal">
+                        {{ auth()->user()->username }}
+                    </span>
+                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button href="{{ route('logout') }}"   class="font-bold uppercase text-gray-600 text-sm" >
+                        Cerrar Sesión
+                    </button>
+                </form>
             </nav>
+        @endauth
+        
+
+            @guest
+                <nav class="flex gap-2 item-center ">
+                    <a class="font-bold uppercase text-gray-600" href="{{ route('login') }}">Login</a>
+                    <a class="font-bold uppercase text-gray-600" href="{{ route('register') }}">Crear Cuenta</a>
+                </nav>
+            @endguest
+
+
+
         </div>
     </header>
 
@@ -32,7 +57,7 @@
 
     <footer class="mt-10 text-center p-5 text-gray-500 font-bold">
         DevShotz - Todos los derechos reservados
-         {{ now()->year}}
+        {{ now()->year }}
     </footer>
 
 </body>
