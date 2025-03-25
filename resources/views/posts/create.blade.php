@@ -23,7 +23,7 @@
 
 
         <div class="md:w-4/12 bg-white p-10 rounded-lg shadow-xl mt-10 md:mt-0">
-            <form action="{{ route('register') }}" method="POST" novalidate>
+            <form action="{{ route('posts.store') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="titulo" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -41,20 +41,40 @@
                 @enderror
 
                 <div class="mb-5">
-                    <label for="descripción" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="descripcion" class="mb-2 block uppercase text-gray-500 font-bold">
                         Descripción
                     </label>
                     <textarea id="descripcion" name="descripcion" placeholder="Descripción de la publicación"
                     class="border border-gray-400 p-2 w-full rounded-lg"
-                    @error('titulo') style="border-color: red" @enderror>{{ old('descripcion') }}</textarea>
+                    @error('descripcion') style="border-color: red" @enderror>{{ old('descripcion') }}</textarea>
                 
                 </div>
 
-                @error('descripcio')
+                @error('descripcion')
                     <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
                         <p>{{ $message }}</p>
                     </div>
                 @enderror
+
+<div class="mb-5">
+    <input 
+    name="imagen"
+    type="hidden"
+    value="{{ old('imagen') }}"
+    />
+
+    @error('imagen')
+    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
+        <p>{{ $message }}</p>
+    </div>
+@enderror
+
+</div>
+
+
+
+
+
                 <input type="submit" value="Crear publicación"
                     class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold p-3 rounded-lg">
 
