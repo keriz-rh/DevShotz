@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('titulo')
-    Publicación: {{ $post->titulo }}
+     {{ $post->titulo }}
 @endsection
 @section('contenido')
     <div class="container mx-auto md:flex gap-4">
