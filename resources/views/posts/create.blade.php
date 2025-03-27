@@ -71,10 +71,6 @@
 
 </div>
 
-
-
-
-
                 <input type="submit" value="Crear publicación"
                     class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold p-3 rounded-lg">
 

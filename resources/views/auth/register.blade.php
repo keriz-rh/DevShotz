@@ -13,6 +13,7 @@
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
             <form action="{{ route('register') }}" method="POST" novalidate>
                 @csrf
+                
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
                         Nombre
@@ -20,13 +21,13 @@
                     <input id="name" name="name" type="text" name="name" placeholder="Tu nombre"
                         class="border border-gray-400 p-2 w-full rounded-lg"
                         @error('name') style="border-color: red" @enderror value="{{ old('name') }}">
+                        
+                        @error('name')
+                        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
+                            <p>{{ $message }}</p>
+                        </div>
+                        @enderror
                 </div>
-
-                @error('name')
-                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-5" role="alert">
-                        <p>{{ $message }}</p>
-                    </div>
-                @enderror
 
                 <div class="mb-5">
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
